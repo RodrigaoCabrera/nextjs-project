@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 async function loadPosts() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
@@ -11,7 +13,9 @@ const Posts = async () => {
       {posts.map((post) => (
         <div key={post.id}>
           <h3>
-            {post.id}. {post.title}
+            <Link href={`/posts/${post.id}`}>
+              {post.id}. {post.title}
+            </Link>
           </h3>
           <p>{post.body}</p>
         </div>
