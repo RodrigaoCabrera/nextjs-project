@@ -6,3 +6,8 @@ export function GET(req, { params }) {
   console.log(value);
   return NextResponse.json("Hello world!");
 }
+export async function POST(req) {
+  const { name } = await req.json();
+  console.log(name);
+  return NextResponse.json("CREANDOO");
+}
